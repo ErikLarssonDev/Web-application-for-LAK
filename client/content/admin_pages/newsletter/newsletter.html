@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/content/admin_pages/newsletter/newsletter.css">
+</head>
+
+<body>
+  <h1>E-post för nyhetsbrev</h1>
+
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"></label>
+      <div id="clipboard-button">
+        <button type="button" class="btn-clipboard" onClick="copyText()">Kopiera</button>
+      </div>
+      <textarea id="email-textarea" class="form-control pr-5" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+  </form>
+
+  <script>
+    function copyText() {
+      navigator.clipboard.writeText($('#email-textarea').val())
+      $('#clipboard-button').html('<button id="clipboard-button" type="button" class="btn-clipboard" onClick="copyText()">Kopierat!</button>')
+      setTimeout(function () { $('#clipboard-button').html('<button id="clipboard-button" type="button" class="btn-clipboard" onClick="copyText()">Kopiera</button>') }, 5000);
+
+
+
+    }
+  </script>
+
+
+</body>
+
+</html>

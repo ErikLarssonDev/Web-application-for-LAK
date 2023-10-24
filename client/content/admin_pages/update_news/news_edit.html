@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/content/admin_pages/update_news/update_news.css">
+</head>
+
+<body>
+    <h1 class="text-uppercase">mina nyheter</h1>
+    <div class="edit-forms">
+        <div class="edit-header">
+            <label for="header-area">Rubrik</label>
+            <input class="form-control mb-2" id="header-area" aria-describedby="messageHelp"
+                placeholder="Rubrik"></input>
+        </div>
+
+        <div class="edit-text">
+            <label for="text-area">Brödtext</label>
+            <textarea class="form-control" id="text-area" rows="10" aria-describedby="messageHelp"
+                placeholder="Brödtext"></textarea>
+        </div>
+    </div>
+    <form class="form-group d-flex flex-column">
+        <label for="file">Lägg till en bild</label>
+        <input type="file" id="add-img-post" name="filename">
+    </form>
+    <button type="button" class="btn btn-dark float-right w-25 my-3" id="submit-button"
+        data-whatever="">Publicera</button>
+
+</body>
+
+</html>

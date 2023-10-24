@@ -1,0 +1,42 @@
+#feature-images-list-home li{
+    list-style-type: none;
+    margin-bottom: 0.3rem;
+}
+
+#calendar .card{
+    max-width: 250px;
+}
+
+.week {
+    border: none;
+}
+
+.post-card {
+    margin: 0.7em 0;
+}
+
+@media screen and (max-width:600px) {
+    #calendar-container{
+        max-width: 100%;
+    }
+}
+
+
+/* .home-list{
+    display: block;
+    margin: 0;
+} */
+
+/* #news-container {
+    flex-grow: 1;
+} */
+
+/* .news-item {
+    box-shadow: 0 0 10px #ccc;
+    margin-bottom:1rem;
+} */
+
+/* #calendar-container {
+    flex-grow: 2;
+    max-width: 60%;
+} */

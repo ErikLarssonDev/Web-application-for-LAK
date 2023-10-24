@@ -1,0 +1,64 @@
+/* Update news library */
+.news-search{
+    border-radius: 12px;
+    padding-left: 25px;
+    background: url(../../../images/black-search.jpeg) 6px center no-repeat;
+    background-size: 1rem;
+    height: 35px;
+    width: 50%;
+}
+
+.news-title {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#news-button, #submit-button {
+    border-radius: 12px;
+    width: 200px;
+}
+#news-controller-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+th {
+    padding: 0.5em 0.75em 0 !important;
+}
+
+tr {
+    border-bottom: lightgrey;
+}
+.table td {
+    padding: 0 0.75em;
+    vertical-align: middle;
+}
+
+#table-title {
+    width: 40%;
+}
+#table-button {
+    width: 150px;
+}
+#table-published {
+    min-width: 95px;
+}
+
+.delete-button, .edit-button{
+    border-radius: 12px;
+    margin: 0.3rem 0;
+}
+
+/* Update news edit */
+label  {
+    margin-bottom: 3px;
+}
+@media screen and (max-width:495px){
+    .news-search{
+        width: auto;
+    }
+    #news-button {
+        width: 206px;
+    }
+}

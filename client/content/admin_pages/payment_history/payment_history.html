@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <h1>Betalningshistorik</h1>
+  <div class="row">
+    <!-- Search bar for members -->
+    <input class="m-3 ml-2 float-left" type="text" id="search-input-payment-admin" onkeyup="findSearchResult('search-input-payment-admin', 'payment-admin-table')"
+      placeholder="Sök betalning" title="Type something...">
+    <!-- <button type="button" class="btn btn-dark m-1 float-right" onclick="exportMembers()">Exportera medlemsdata</button> -->
+  </div>
+
+  <table class="table table-sm table-hover " id="payment-admin-table">
+    <thead class="border-bottom border-secondary thead-light">
+      <tr>
+        <th scope="col" id="what-payment" onclick="sortTable(0, 'payment-admin-table')">Vad</th>
+        <th scope="col" id="when-payment" onclick="sortTable(1, 'payment-admin-table')">När 
+            <!-- <i id="member-pnr-icon" style="color:var(--primary-color); padding:0px; width:15px"></i> -->
+        </th>
+        <th scope="col" id="cost-payment">Kostnad</th>
+        <th scope="col" id="member-payment" class="can-disappear">Betalad av</th>
+        <!-- <th scope="col" id="adr" class="can-disappear">Address</th> -->
+        <!-- <th scope="col"></th> -->
+      </tr>
+    </thead>
+    <tbody id="bodyrow">
+    </tbody>
+  </table>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+
+#faq-btn, #faq-body{
+    width: 100%;
+    color: var(--primary-color); 
+    font-size: 14px;
+    font-weight: 300;;
+}
+
+#faq-btn {
+    max-width: 100% !important;
+}
+.card-header{
+    padding: 0;
+    background-color: whitesmoke;
+    color: navy;
+}
+
+.faq-header:hover{
+    cursor:pointer;
+}
+

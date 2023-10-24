@@ -1,0 +1,8 @@
+@media screen and (max-width:370px){
+    html,body{
+        overflow-x:hidden;
+    }
+    #edit-site-modals .modal-body,#board-member-modal .modal-body{
+        width: 90%;
+    }
+}

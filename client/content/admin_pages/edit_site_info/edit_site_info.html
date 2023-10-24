@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/content/admin_pages/edit_site_info/edit_site_info.css">
+</head>
+
+<body>
+    <div class="container-fluid px-0 b-2">
+        <div class="d-flex flex-wrap">
+            <div class="col-12 col-xl-6">
+                <h2>Kontaktuppgifter</h2>
+                <div class="container-sm shadow p-4 mb-5 bg-body rounded">
+                    <!-- EDIT CONTACT INFO -->
+                    <div class="container-sm shadow p-4 mb-5 bg-body rounded">
+                        <table class="table table-hover table-sm">
+                            <thead class="border-bottom border-secondary thead-light">
+                                <tr>
+                                    <th scope="col">Dag</th>
+                                    <th scope="col" class="can-disappear" id="opening-table-open-col">Öppet</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="opening-hour-table">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="editContactinfoContainer" class="shadow p-4 mb-5 bg-body rounded">
+                        <div>
+                            <label for="body">Klubbens namn</label>
+                            <input class="form-control" id="editClubName">
+                            <label for="body">Klubbens mejl</label>
+                            <input class="form-control" id="editClubEmail">
+                            <label for="body">Klubbens telefonnummer</label>
+                            <input class="form-control" id="editClubPhone">
+                            <label for="body">Klubbens adress</label>
+                            <input class="form-control" id="editClubAddress">
+                            <label for="body">Klubbens postnummer</label>
+                            <input class="form-control" id="editClubZipcode">
+                            <label for="body">Klubbens ort/distrikt</label>
+                            <input class="form-control" id="editClubDistrict">
+                            <label for="body">Klubbens InstagramURL</label>
+                            <input class="form-control" id="editClubInstagram">
+                            <label for="body">Klubbens FacebookURL</label>
+                            <input class="form-control" id="editClubFacebook">
+                            <button type="submit" class="btn btn-dark mt-2" id="saveEditedClubButton">Spara
+                                kontaktuppgifter</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>FAQ</h2>
+                    <div class="container-sm shadow p-4 mb-5 bg-body rounded">
+                        <button type="button" id="add-faq-button" class="btn btn-dark" data-toggle="modal"
+                            data-target="#add-faq-modal">Lägg till FAQ</button>
+                        <table class="table table-hover table-sm">
+                            <thead class="border-bottom border-secondary thead-light">
+                                <tr>
+                                    <th scope="col">Fråga</th>
+                                    <th scope="col align-right"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-faq-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- EDIT BOARD MEMBERS -->
+            <div class="col-12 col-xl-6">
+                <div class="col-12">
+                    <h2>Styrelsen</h2>
+                    <div class="container-sm shadow p-4 mb-5 bg-body rounded">
+                        <button type="button" id="add-board-button" class="btn btn-dark" data-toggle="modal"
+                            data-target="#add-board-member-modal">Lägg till styrelsemedlem</button>
+                        <table class="table table-hover table-sm">
+                            <thead class="border-bottom border-secondary thead-light">
+                                <tr>
+                                    <th scope="col">Namn</th>
+                                    <th id="title-col" scope="col" class="can-disappear">Roll</th>
+                                    <th id="mail-col" scope="col" class="can-disappear">Mejl</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="board-members-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- EDIT FILES -->
+                <div class="col-12">
+                    <h2>Årsmöteshandlingar</h2>
+                    <div class="container-sm shadow p-4 mb-5 bg-body rounded">
+                        <form action="/action_page.php">
+                            <input type="file" id="add-year-file-upload" name="filename">
+                        </form>
+                        <button id="add-year-file-button" class="btn btn-dark" type="button">Lägg till
+                            fil</button>
+                        <table class="table table-hover table-sm">
+                            <thead class="border-bottom border-secondary thead-light">
+                                <tr>
+                                    <th scope="col">Fil</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="year-protocols-table-admin">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <h2>Sponsbilder på "hem"</h2>
+                    <div class="container-sm shadow p-4 mb-5 bg-body rounded">
+                        <form action="/action_page.php">
+                            <input type="file" id="add-feature-img-upload" name="filename">
+                        </form>
+                        <button id="add-feature-image-button" class="btn btn-dark" type="button">Lägg till
+                            bild</button>
+                        <table class="table table-hover table-sm">
+                            <thead class="border-bottom border-secondary thead-light">
+                                <tr>
+                                    <th scope="col">Bild</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="feature-images-table-admin">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <h2>Integritetspolicy</h2>
+                    <div class="container-sm shadow p-4 mb-5 bg-body rounded">
+                        <form action="/action_page.php">
+                            <input type="file" id="add-policy-file-upload" name="filename">
+                        </form>
+                        <button id="add-policy-file-button" class="btn btn-dark" type="button">Lägg till
+                            fil</button>
+                        <table class="table table-hover table-sm">
+                            <thead class="border-bottom border-secondary thead-light">
+                                <tr>
+                                    <th scope="col">Fil</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="policy-table-admin">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- MODALS -->
+            <div id="edit-site-modals">
+                <!-- Modal for updating a days openinghours -->
+                <div class="modal fade" id="opening-hour-modal" tabindex="-1" role="dialog"
+                    aria-labelledby="opening-hour-modal-label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="opening-hour-modal-label">Redigera Öppettider</h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="update-opening-hour">
+                                    <div class="form-group">
+                                        <label for="day" class="col-form-label"></label>
+                                        <input type="text" class="modal-form login-input form-control"
+                                            id="opening-hour-day" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="open" class="col-form-label">Öppningstid</label>
+                                        <input type="time" class="form-control modal-form login-input"
+                                            id="opening-hour-open">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="close" class="col-form-label">Stängningstid</label>
+                                        <input type="time" class="form-control modal-form login-input"
+                                            id="opening-hour-close">
+                                        <div id="opening-hour-close-feedback"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer d-flex flex-nowrap">
+                                <button type="button" class="modal-btn btn btn-dark mr-2"
+                                    data-dismiss="modal">Stäng</button>
+                                <button id="update-opening-hour-button" class="modal-btn btn btn-primary"
+                                    type="button">Uppdatera</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal for adding a new board member -->
+                <div class="modal fade" id="add-board-member-modal" tabindex="-1" role="dialog"
+                    aria-labelledby="board-member-modal-label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="add-board-member-modal-label">Lägg till styrelsemedlem</h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="add-board-member">
+                                    <div class="form-group" id="add-board-member-image">
+                                        <form action="/action_page.php">
+                                            <input type="file" id="add-board-member-file-upload" name="filename">
+                                        </form>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-form-label">Namn</label>
+                                        <input type="text" class="form-control modal-form login-input"
+                                            id="add-board-member-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="title" class="col-form-label">Roll</label>
+                                        <input type="text" class="form-control modal-form login-input"
+                                            id="add-board-member-title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mail" class="col-form-label">Mejl</label>
+                                        <input type="email" class="form-control modal-form login-input"
+                                            id="add-board-member-email">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer d-flex flex-nowrap">
+                                <button type="button" class="modal-btn mr-2 btn btn-dark "
+                                    data-dismiss="modal">Stäng</button>
+                                <button id="add-board-member-button" class="modal-btn btn btn-primary"
+                                    type="button">Lägg
+                                    till</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for updating a board member -->
+            <div class="modal fade" id="board-member-modal" tabindex="-1" role="dialog"
+                aria-labelledby="board-member-modal-label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="board-member-modal-label">Redigera styrelsemedlem</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="update-board-member">
+                                <div class="form-group" id="update-board-member-image">
+                                    <form action="/action_page.php">
+                                        <img id="board-member-modal-img" class="card-img-top board-member-image">
+                                        <input type="file" id="board-member-file-upload" name="filename">
+                                    </form>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name" class="col-form-label">Namn</label>
+                                    <input type="text" class="form-control modal-form login-input"
+                                        id="board-member-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="title" class="col-form-label">Roll</label>
+                                    <input type="text" class="form-control modal-form login-input"
+                                        id="board-member-title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mail" class="col-form-label">Mejl</label>
+                                    <input type="email" class="form-control modal-form login-input"
+                                        id="board-member-email">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer d-flex flex-nowrap">
+                            <button type="button" class="modal-btn mr-2 btn btn-dark"
+                                data-dismiss="modal">Stäng</button>
+                            <button id="update-board-member-button" class="modal-btn mr-2 btn btn-primary"
+                                type="button">Uppdatera</button>
+                            <button id="delete-board-member-button" class="btn btn-danger" type="button">Radera</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for addding a FAQ -->
+            <div class="modal fade" id="add-faq-modal" tabindex="-1" role="dialog"
+                aria-labelledby="board-member-modal-label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="board-member-modal-label">Lägg till FAQ</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Fråga</label>
+                                <input type="text" class="form-control modal-form" id="add-faq-question">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail" class="col-form-label">Svar</label>
+                                <textarea class="form-control modal-form login-input" id="add-faq-answer"
+                                    rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-nowrap">
+                            <button type="button" class="modal-btn mr-2 btn btn-dark"
+                                data-dismiss="modal">Stäng</button>
+                            <button id="send-faq-button" class="modal-btn mr-2 btn btn-primary" data-dismiss="modal"
+                                type="button">Lägg till</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for editing a FAQ -->
+            <div class="modal fade" id="edit-faq-modal" tabindex="-1" role="dialog"
+                aria-labelledby="board-member-modal-label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="board-member-modal-label">Ändra FAQ</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Fråga</label>
+                                <input type="text" class="form-control modal-form" id="edit-faq-question">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail" class="col-form-label">Svar</label>
+                                <textarea class="form-control modal-form login-input" id="edit-faq-answer"
+                                    rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-nowrap">
+                            <button type="button" class="modal-btn mr-2 btn btn-dark"
+                                data-dismiss="modal">Stäng</button>
+                            <button id="update-faq-button" class="modal-btn mr-2 btn btn-primary" data-dismiss="modal"
+                                type="button">Uppdatera</button>
+                            <button id="delete-faq-button" class="btn btn-danger" type="button"
+                                data-dismiss="modal">Radera</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COFIRM DELEETION BOARD MEMBER -->
+            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+                id="confirm-delete-board-member-modal">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="registration-modal-label">Är du säker på att du vill radera
+                                denna
+                                styrelsemedlem?</h6>
+                        </div>
+                        <div class="modal-body d-flex flex-wrap">
+                            <button type="button" class="modal-btn btn btn-danger" id="confirm-deletion-board-member"
+                                data-dismiss="modal">Ta
+                                bort</button>
+                            <button type="button" class="modal-btn btn btn-dark" data-dismiss="modal"
+                                id="cancel-deletion-board-member">Avbryt</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- CONFIRM DELETION OF FILE -->
+            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+                id="confirm-delete-file-modal">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="registration-modal-label">Är du säker på att du vill radera
+                                denna fil?</h6>
+                        </div>
+                        <div class="modal-body d-flex flex-wrap">
+                            <button type="button" class="modal-btn btn btn-danger" id="confirm-deletion-file"
+                                data-dismiss="modal">Ta
+                                bort</button>
+                            <button type="button" class="modal-btn btn btn-dark" data-dismiss="modal"
+                                id="cancel-deletion-board-member">Avbryt</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- COFIRM DELEETION FAQ -->
+            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+                id="confirm-delete-faq-modal">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="registration-modal-label">Är du säker på att du vill radera
+                                denna fråga?</h6>
+                        </div>
+                        <div class="modal-body d-flex flex-wrap">
+                            <button type="button" class="modal-btn btn btn-danger" id="confirm-deletion-faq"
+                                data-dismiss="modal">Ta
+                                bort</button>
+                            <button type="button" class="modal-btn btn btn-dark" data-dismiss="modal"
+                                id="cancel-deletion-board-member">Avbryt</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

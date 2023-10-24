@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+</head>
+
+<!-- <body> -->
+<h1>Alla händelser</h1>
+<div class="row">
+    <!-- Search bar for events -->
+    <input class="m-3 ml-1 float-left" type="text" id="search-input-admin-bookings"
+        onkeyup="findSearchResult('search-input-admin-bookings', 'view-member-bookings-table')"
+        placeholder="Hitta händelse" title="Type in a name">
+    <button type="button" class="btn btn-dark m-2 mb-1" id="add-booking-button">Lägg till ny</button>
+</div>
+
+<table class="table table-sm table-hover" id="view-member-bookings-table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col" id="event-col" onclick="sortTable(0, 'view-member-bookings-table')">Händelse</th>
+            <th scope="col" id="start-date-col" class="can-disappear" onclick="sortTable(1, 'view-member-bookings-table')">Start</th>
+            <th id="end-date-col" scope="col" class="can-disappear" onclick="sortTable(2, 'view-member-bookings-table')">
+                Slut</th>
+            <th id="price-col" scope="col" class="can-disappear">Pris</th>
+            <th id="spots-col" scope="col" class="can-disappear">Antal Platser kvar</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody id="events-admin-table">
+    </tbody>
+</table>
+
+
+<!-- Modal for adding a new event -->
+<div class="modal fade" id="add-event-modal" tabindex="-1" role="dialog" aria-labelledby="registration-modal-label"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="registration-modal-label">Lägg till händelse</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="add-event-title-input">Namn på händelse</label>
+                    <input type="text" class="form-control" id="add-event-title-input" aria-describedby="Namn"
+                        placeholder="Namn">
+                </div>
+                <div class="form-group">
+                    <label for="add-event-description-input">Beskrivning</label>
+                    <textarea class="form-control" id="add-event-description-input" rows="3"></textarea>
+                </div>
+                <div class="d-flex flex-nowrap">
+                    <div class="mr-2">
+                        <label for="basic-url">Pris</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="add-event-price-input" aria-describedby="Pris"
+                                placeholder="Pris"></input>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon3">kr</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="basic-url">Antal platser</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="add-event-spots-input"
+                                aria-describedby="Spots" placeholder="Antal platser"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="add-event-start-date-input">Start</label>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <input type="date" class="form-control" id="add-event-start-date-input"
+                            aria-describedby="Startdatum" placeholder="YYYY-MM-DD"></input>
+                    </div>
+                    <div class="form-group col-6">
+                        <input type="time" class="form-control" id="add-event-start-time-input"
+                            aria-describedby="Starttid" placeholder="HH:MM"></input>
+                    </div>
+                </div>
+
+                <label for="add-event-end-date-input">Slut</label>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <input type="date" class="form-control" id="add-event-end-date-input"
+                            aria-describedby="Startdatum" placeholder="YYYY-MM-DD"></input>
+                    </div>
+                    <div class="form-group col-6">
+                        <input type="time" class="form-control" id="add-event-end-time-input"
+                            aria-describedby="Starttid" placeholder="HH:MM"></input>
+                    </div>
+                </div>
+                <!-- Buttons -->
+                <div class="d-flex flex-nowrap">
+                    <button type="button" class="modal-btn btn btn-dark mr-2" data-dismiss="modal">Stäng</button>
+                    <button type="button" class="modal-btn btn btn-primary" onclick="addEvent()"
+                        data-dismiss="modal">Lägg till</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for edit an event -->
+<div class="modal fade" id="edit-event-modal" tabindex="-1" role="dialog" aria-labelledby="registration-modal-label"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="registration-modal-label">Redigera händelse</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="edit-event-title-input">Namn på händelse</label>
+                    <input type="text" class="form-control" id="edit-event-title-input" aria-describedby="Namn"
+                        placeholder="Namn">
+                </div>
+                <div class="form-group">
+                    <label for="edit-event-description-input">Beskrivning</label>
+                    <textarea class="form-control" id="edit-event-description-input" rows="3"></textarea>
+                </div>
+                <div class="d-flex flex-nowrap">
+                    <div class="mr-2">
+                        <label for="edit-event-price-input">Pris</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="edit-event-price-input"
+                                aria-describedby="Pris" placeholder="Pris"></input>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon3">kr</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="edit-event-spots-input">Antal platser</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="edit-event-spots-input"
+                                aria-describedby="Spots" placeholder="Antal platser"></input>
+                        </div>
+                    </div>
+                </div>
+                <label for="edit-event-start-date-input">Start</label>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <input type="date" class="form-control" id="edit-event-start-date-input"
+                            aria-describedby="Startdatum" placeholder="YYYY-MM-DD"></input>
+                    </div>
+                    <div class="form-group col-6">
+                        <input type="time" class="form-control" id="edit-event-start-time-input"
+                            aria-describedby="Starttid" placeholder="HH:MM"></input>
+                    </div>
+                </div>
+                <label for="edit-event-end-date-input">Slut</label>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <input type="date" class="form-control" id="edit-event-end-date-input"
+                            aria-describedby="Startdatum" placeholder="YYY-MM-DD"></input>
+                    </div>
+                    <div class="form-group col-6">
+                        <input type="time" class="form-control" id="edit-event-end-time-input"
+                            aria-describedby="Starttid" placeholder="HH:MM"></input>
+                    </div>
+                </div>
+                <!-- Buttons -->
+                <div class="d-flex flex-nowrap">
+                    <button type="button" class="btn btn-dark mr-2 w-50" data-dismiss="modal">Stäng</button>
+                    <button type="button" id="edit-event-button" class="btn btn-primary mr-2 w-50"
+                        data-dismiss="modal">Uppdatera</button>
+                    <button type="button" id="delete-event-button" class="btn btn-danger w-50"
+                        data-dismiss="modal">Radera</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal for viewing booked members on an event -->
+<div class="modal fade" id="registered-modal" tabindex="-1" role="dialog" aria-labelledby="registration-modal-label"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="registration-modal-label">Händelse</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row ml-2">
+                    <!-- Search bar for members -->
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="search-input-member-modal"
+                            onkeyup="findSearchResult('search-input-member-modal', 'members-table-modal')"
+                            placeholder="Hitta användare" title="Type in a name">
+                    </div>
+                </div>
+
+                <table class="table" id="members-table-modal">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" id="name" onclick="sortTable(0, 'members-table-modal')">Namn</th>
+                            <th scope="col" id="member-pnr" class="can-disappear"
+                                onclick="sortTable(1, 'members-table-modal')">Personnummer <i id="member-pnr-icon"
+                                    style="color:var(--primary-color); padding:0px; width:15px"></i></th>
+                            <th scope="col" id="mail" class="can-disappear">E-postadress</th>
+                            <th scope="col" id="tel" class="can-disappear">Telefonnummer</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyrow">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CONFIRM DELETION OF EVENT -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+    id="confirm-delete-event-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="registration-modal-label">Är du säker på att du vill ta bort denna
+                    händelse?</h6>
+            </div>
+            <div class="modal-body d-felx flex-wrap">
+                <button type="button" class="modal-btn btn btn-danger" id="confirm-deletion-event"
+                    data-dismiss="modal">Ta
+                    bort</button>
+                <button type="button" class="modal-btn btn btn-dark" data-dismiss="modal"
+                    id="cancel-deletion-board-member">Avbryt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CONFIRM DELETION OF EVENT -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+    id="confirm-unbook-user-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="unbook-user-label"></h6>
+            </div>
+            <div class="modal-body d-felx flex-wrap">
+                <button type="button" class="modal-btn btn btn-danger" id="confirm-unbook-user"
+                    data-dismiss="modal">Avboka</button>
+                <button type="button" class="modal-btn btn btn-dark" data-dismiss="modal"
+                    id="cancel-deletion-board-member">Avbryt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

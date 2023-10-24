@@ -1,0 +1,33 @@
+
+#edit-profile-button:hover{
+    cursor: pointer;
+}
+
+#sidebar-content button{
+    min-width: 100%; 
+    font-size: 1rem;
+}
+
+.my-pages {
+    margin-top: 78px;
+}
+
+.form-check-label {
+    font-size: 14px;
+}
+
+.form-check {
+    margin-left: 1rem;
+}
+
+.active-button{
+    background-color: var(--secondary-color)!important;
+    border-color: var(--secondary-color) !important;
+    outline: none;
+}
+
+@media screen and (max-width: 767px) {
+    .my-pages {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- All css files -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link rel="stylesheet" href="client.css">
+   <link rel="stylesheet" href="/content/footer.css">
+   <link rel="stylesheet" href="/content/header.css">
+   <link rel="stylesheet" href="/content/buttons.css">
+
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <!-- Font -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+
+   <!-- Socialmedia symbols -->
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+   <!-- Tab content -->
+   <link rel="icon" type="image/png" id="tab-logo" sizes="40x40">
+   <title>TESTSIDA</title>
+
+   <!-- All the js-files  -->
+   <script src="client.js"></script>
+   <script src="./content/home/home.js"></script>
+   <script src="./content/home/older_posts/older_posts.js"></script>
+   <script src="./content/faq/faq.js"></script>
+   <script src="./content/about/about.js"></script>
+   <script src="./content/about/protocols/protocols.js"></script>
+   <script src="./content/contact/contact.js"></script>
+   <script src="./content/records/records.js"></script>
+   <script src="./content/events/events.js"></script>
+   <script src="./content/member_pages/my_profile.js"></script>
+   <script src="./content/admin_pages/admin_start.js"></script>
+   <script src="./content/admin_pages/members/members.js"></script>
+   <script src="./content/admin_pages/update_news/update_news.js"></script>
+   <script src="./content/admin_pages/handle_bookings/handle_bookings.js"></script>
+   <script src="./content/admin_pages/edit_design/edit_design.js"></script>
+   <script src="./content/admin_pages/edit_site_info/edit_site_info.js"></script>
+   <script src="./content/admin_pages/newsletter/newsletter.js"></script>
+   <script src="./content/admin_pages/tags/tags.js"></script>
+   <script src="./content/admin_pages/edit_memberships/edit_memberships.js"></script>
+   <script src="./content/admin_pages/payment_history/payment_history.js"></script>
+
+
+   <script src="./content/misc/breadcrumbs.js"></script>
+   <script src="./content/misc/registration.js"></script>
+   <script src="./content/misc/log_in_out.js"></script>
+   <script src="./content/misc/file_handling.js"></script>
+   <script src="./content/misc/colors.js"></script>
+   <script src="./content/misc/reset_password.js"></script>
+   <script src="./content/misc/checkout_completion.js"></script>
+   <script src="./content/member_pages/member_profile.js"></script>
+   <script src="./content/member_pages/member_booking.js"></script>
+   <script src="./content/member_pages/member_membership.js"></script>
+   <script src="./content/member_pages/member_payment.js"></script>
+   <script src="./content/member_pages/member_settings.js"></script>
+   
+
+
+
+   <!-- Stripe.js -->
+   <script src="https://js.stripe.com/v3/"></script>
+
+</head>
+
+<body>
+   <!-- Turns body into flexbox container, solution to push footer down the page, may be changed later.-->
+
+   <!-- NAVBAR -->
+   <div id="nav-and-bread" class="sticky-top">
+      <nav id="nav" class="navbar navbar-dark navbar-expand-lg px-5">
+         <!-- NAVBAR LOGO -->
+         <a id="logo" class="navbar-brand" href="#">
+            <img id="logo-img" alt="Logotype" class="d-inline-block align-top"></a>
+         <!-- /NAVBAR LOGO -->
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse hide navbar-collapse py-2" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item" id="home-link">
+                  <a id="home-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show">Hem<span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item" id="about-link">
+                  <a id="about-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show">Om oss</a>
+               </li>
+               <li class="nav-item" id="events-link">
+                  <a id="events-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show">Händelser</a>
+               </li>
+               <li class="nav-item" id="faq-link">
+                  <a id="faq-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show">Frågor och svar</a>
+               </li>
+               <li class="nav-item" id="contact-link">
+                  <a id="contact-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show">Kontakt</a>
+               </li>
+               <li class="nav-item" id="records-link">
+                  <a id="records-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show">Klubbrekord</a>
+               </li>
+            </ul>
+            <ul class="navbar-nav me-auto">
+               <li id="registration-item" class="nav-item">
+                  <a id="registration-button" class="nav-link" href="#" data-toggle="modal"
+                     data-target="#registration-modal" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show">Bli medlem</a>
+               </li>
+               <li id="login-item" class="nav-item">
+                  <a id="login-button" class="nav-link" href="#" data-toggle="modal" data-target="#login-modal"
+                     data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Logga
+                     in</a>
+               </li>
+               <li id="logout-item" class="nav-item">
+                  <a id="logout-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show">Logga ut</a>
+               </li>
+               <li id="profile-item" class="nav-item">
+                  <a id="profile-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show"><span id="profile-logo" class="fa fa-user p-1"></span>Min
+                     profil</a>
+               </li>
+               <li id="admin-item" class="nav-item">
+                  <a id="admin-button" class="nav-link" href="#" data-bs-toggle="collapse"
+                     data-bs-target=".navbar-collapse.show"><span id="admin-logo"
+                        class="fa fa-user p-1"></span>Admin</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+
+      <ol class="breadcrumb pl-5 py-0 h-50"></ol>
+   </div>
+   <div class="flex-wrapper">
+      <div id="container" class="d-flex flex-wrap flex-column mx-5"></div>
+
+      <!-- Footer -->
+      <footer class="footer text-center text-lg-start text-white-50 pt-2" id="footer">
+
+         <!-- Section: Links  -->
+         <section class="">
+            <div class="footer-container mt-5 mx-5 text-left">
+               <h2 id="lka-header-footer"></h2>
+               <!-- Grid row -->
+               <div class="mt-3 footer-main">
+                  <div class="footer-openinghours mb-3">
+                     <h4 class="text-uppercase fw-bold mb-3">Öppettider</h4>
+                     <p id="footer-opening-hours-content">
+                     </p>
+                  </div>
+
+                  <div id="footer-link-block" class="d-flex flex-wrap">
+                     <!-- Grid column -->
+                     <div class="footer-links">
+                        <!-- Links -->
+                        <h4 class="text-uppercase fw-bold mb-3">
+                           Länkar
+                        </h4>
+                        <p>
+                           <a class="text-reset" id="home-button-footer"></a>
+                        </p>
+                        <p>
+                           <a href="#!" class="text-reset"></a>
+                        </p>
+                        <p>
+                           <a href="#!" class="text-reset" id="gdpr-button-footer"></a>
+                        </p>
+                        <p>
+                           <a href="#!" class="text-reset" id="protocols-button-footer"></a>
+                        </p>
+                     </div>
+                     <!-- Grid column -->
+
+                     <!-- Grid column -->
+                     <div class="footer-links">
+                        <!-- Links -->
+                        <h4 class="text-uppercase fw-bold mb-3">
+                           Info
+                        </h4>
+                        <p>
+                           <a href="#!" class="text-reset" id="about-button-footer"></a>
+                        </p>
+                        <p>
+                           <a href="#!" class="text-reset" id="contact-button-footer"></a>
+                        </p>
+                        <p>
+                           <a href="#!" class="text-reset" id="policy-button-footer"></a>
+                        </p>
+                     </div>
+                     <!-- Grid column -->
+
+                     <!-- Grid column -->
+                     <div class="footer-links">
+                        <!-- Links -->
+                        <h4 class="text-uppercase fw-bold mb-3">
+                           Medlemsidor
+                        </h4>
+                        <p>
+                           <a href="#!" class="text-reset" data-toggle="modal" data-target="#registration-modal"
+                              id="signup-button-footer"></a>
+                        </p>
+                        <p>
+                           <a href="#!" data-toggle="modal" data-target="#login-modal" class="text-reset"
+                              id="login-button-footer"></a>
+                        </p>
+                        <p>
+                           <a href="#!" class="text-reset" id="events-button-footer"></a>
+                        </p>
+                     </div>
+                     <!-- Grid column -->
+                  </div>
+
+               </div>
+            </div>
+            <div class="contact mb-1 mt-1 p-0" id=lower-section-footer>
+
+            </div>
+            <!-- Grid row -->
+            <!-- Copyright -->
+            <div class="copywrite text-center" id="footer-copyright-content">
+               © 2022 Copyright:
+            </div>
+            <div class="sportify-cred">
+               <p>
+                  This site is made by <a href="https://www.crazygames.se/spel/age-of-war"><img id="sportify-logo-img"
+                        src="images/sportify-tbg.png"></a>
+               </p>
+            </div>
+            <!-- Copyright -->
+   </div>
+
+   </section>
+   <!-- Section: Links  -->
+   </footer>
+   <!-- Footer -->
+   </div>
+</body>
+<script src="./content/misc/reset_password.js"></script>
+
+<!-- Modal for member registration -->
+<div class="modal fade" id="registration-modal" tabindex="-1" role="dialog" aria-labelledby="registration-modal-label"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3 class="modal-title" id="registration-modal-label">Bli medlem</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form id="registration-form">
+               <!-- Person number -->
+               <label for="pn" class="col-form-label">Personnummer</label>
+               <div class="form-row">
+                  <div class="form-group col-6">
+                     <input type="text" class="form-control modal-form reg-input" id="pn-date-input"
+                        placeholder="ÅÅÅÅMMDD" maxlength="8" required="true">
+                  </div>
+                  <p> - </p>
+                  <div class="form-group col-4">
+                     <input type="text" class="form-control modal-form reg-input" id="pn-numbers-input"
+                        placeholder="XXXX" maxlength="4" required="true">
+                  </div>
+               </div>
+               <!-- Names -->
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <label for="first-name" class="col-form-label">Förnamn</label>
+                     <input type="text" class="form-control modal-form reg-input" id="first-name-input" required="true">
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label for="last-name" class="col-form-label">Efternamn</label>
+                     <input type="text" class="form-control modal-form reg-input" id="last-name-input" required="true">
+                  </div>
+               </div>
+               <!-- Address -->
+               <div class="form-row">
+                  <div class="form-group col-md-5">
+                     <label for="address" class="col-form-label">Adress</label>
+                     <input type="text" class="form-control modal-form reg-input" id="reg-address-input">
+                  </div>
+                  <div class="form-group col-md-3">
+                     <label for="zipcode" class="col-form-label">Postnummer</label>
+                     <input type="text" class="form-control modal-form reg-input" id="zipcode-input" maxlength="6">
+                  </div>
+                  <div class="form-group col-md-4">
+                     <label for="city" class="col-form-label">Ort</label>
+                     <input type="text" class="form-control modal-form reg-input" id="city-input">
+                  </div>
+               </div>
+               <!-- Phone -->
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <label for="tel" class="col-form-label">Telefon</label>
+                     <input type="text" class="form-control modal-form reg-input" id="tel-input">
+                  </div>
+               </div>
+
+               <!-- Mail -->
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <label for="email" class="col-form-label">Mejl</label>
+                     <input type="email" class="form-control modal-form reg-input" id="email-input"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required="true">
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label for="email" class="col-form-label">Upprepa mejl</label>
+                     <input type="email" class="form-control modal-form reg-input" id="email-input-repeat"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required="true">
+                  </div>
+               </div>
+               <!-- Password  -->
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <label for="password" class="col-form-label" required>Lösenord</label>
+                     <input type="password" class="form-control validate modal-form reg-input" id="password-input"
+                        required="true">
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label for="password" class="col-form-label">Upprepa lösenord</label>
+                     <input type="password" class="form-control modal-form reg-input" id="password-input-repeat"
+                        required="true">
+                     <div id="password-input-repeat-feedback"></div>
+                  </div>
+               </div>
+               <div class="form-row">
+                  <div class="form-group col">
+                     <input type="checkbox" class="modal-form reg-input" id="gdpr-accept" required="true">
+                     <label for="gdpr" id="gdpr-text" class="col-form-label">Jag godkänner <a id="gdpr-link" href="#"
+                           target="blank">hantering av personuppgifter</a></label>
+                  </div>
+               </div>
+               <!-- Buttons -->
+               <div class="d-flex flex-nowrap">
+                  <button type="button" class="btn btn-secondary mr-1 w-50" data-dismiss="modal">Stäng</button>
+                  <button type="button" class="btn btn-primary ml-1 w-50" onclick="registerCustomer()">Bli
+                     medlem</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Modal for login -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-label"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3 class="modal-title" id="login-modal-label">Logga in</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form id="login-form">
+               <div class="form-group">
+                  <label for="email" class="col-form-label">Mejl</label>
+                  <input type="email" class="form-control modal-form login-input" id="email-login">
+               </div>
+               <div class="form-group">
+                  <label for="password" class="col-form-label">Lösenord</label>
+                  <input type="password" class="form-control modal-form login-input" id="password-login">
+               </div>
+            </form>
+         </div>
+         <button type="button" data-dismiss="modal" data-toggle="modal" href="#forgot-password-modal"
+            class="btn btn-link">Glömt lösenord?</button>
+         <div class="modal-footer d-flex flex-nowrap">
+            <button type="button" class="btn btn-secondary mr-1 w-50" data-dismiss="modal">Stäng</button>
+            <button id="send-login-button" class="btn btn-primary ml-1 w-50" type="button">Logga in</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Modal for GDPR -->
+<div class="modal fade" id="gdpr-modal" tabindex="-1" role="dialog" aria-labelledby="gdpr-modal-label"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3 class="modal-title" id="login-modal-label">Hantering av personuppgifter</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <p>Vi hanterar dina personuppgifter så himla bra ;)</p>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<!-- Modal for forgot password -->
+<div class="modal fade" id="forgot-password-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-label"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3 class="modal-title" id="login-modal-label">Glömt lösenord</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+
+            <form id="forgot-password-form">
+               <div class="form-group">
+                  <label for="email" class="col-form-label">Mejl</label>
+                  <input type="email" class="form-control login-input" id="forgotten-password-email">
+               </div>
+            </form>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+            <button id="send-email-button" onclick="blablabla()" class="btn btn-primary ml-1" type="button">Återställ
+               lösenord</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Modal for editing user -->
+<div class="modal fade" id="edit-user-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-label">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3 class="modal-title" id="edit-user-modal-label"></h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form id="edit-form">
+               <!-- Person number -->
+               <label for="pn" class="col-form-label">Personnummer</label>
+               <div class="form-row">
+                  <div class="form-group col-6">
+                     <input type="text" class="form-control modal-form reg-input" id="pn-date-input-edit-user"
+                        placeholder="ÅÅÅÅMMDD" maxlength="8">
+                  </div>
+                  <div class="form-group col-4">
+                     <input type="text" class="form-control modal-form reg-input" id="pn-numbers-input-edit-user"
+                        placeholder="XXXX" maxlength="4">
+                  </div>
+               </div>
+               <!-- Names -->
+               <div class="form-row">
+                  <div class="form-group col-md-6">
+                     <label for="first-name" class="col-form-label">Förnamn</label>
+                     <input type="text" class="form-control reg-input" id="first-name-input-edit-user">
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label for="last-name" class="col-form-label">Efternamn</label>
+                     <input type="text" class="form-control reg-input" id="last-name-input-edit-user">
+                  </div>
+               </div>
+               <!-- Email & Phone -->
+               <div class="form-row">
+                  <!-- Email -->
+                  <div class="form-group col-md-6">
+                     <label for="user-email" class="col-form-label">Mailaddress</label>
+                     <input type="email" class="form-control" id="email-edit-user">
+                  </div>
+                  <!-- Phone -->
+                  <div class="form-group col-md-6">
+                     <label for="tel" class="col-form-label">Telefon</label>
+                     <input type="text" class="form-control reg-input" id="tel-input1">
+                  </div>
+               </div>
+               <!-- Address -->
+               <div class="form-row">
+                  <div class="form-group col-md-5">
+                     <label for="address" class="col-form-label">Adress</label>
+                     <input type="text" class="form-control reg-input" id="address-input1">
+                  </div>
+                  <div class="form-group col-md-3">
+                     <label for="postal" class="col-form-label">Postnummer</label>
+                     <input type="text" class="form-control reg-input" id="postal-input1">
+                  </div>
+                  <div class="form-group col-md-4">
+                     <label for="city" class="col-form-label">Ort</label>
+                     <input type="text" class="form-control reg-input" id="city-input1">
+                  </div>
+               </div>
+
+               <!-- Active memberships/cards -->
+               <div class="card">
+                  <div class="card-header" id="membership-header-edit-user">
+                     Medlemskap
+                  </div>
+                  <ul class="list-group" id="memberships-list">
+
+                  </ul>
+               </div>
+               <!-- Subscribes to newsletter -->
+               <div class="form-check mt-3 mb-2">
+                  <input class="member-check-input" type="checkbox" value="" id="newsletter-check-input">
+                  <label class="form-check-label" for="flexCheckChecked">
+                     Prenumererar på nyhetsbrev
+                  </label>
+               </div>
+               <!-- Add tag button -->
+               <div class="card">
+                  <div class="card-header" id="active-tag-user">
+                     Aktiva taggar
+                  </div>
+                  <div id="tag-list" class="m-2 ml-1">
+                     <!-- <h6>Tagg-ID</h6>
+                     <p id="first-row-tag">94</p>
+                     <h6>Giltig till:</h6>
+                     <p id="second-row-tag"> Maj 2028</p> -->
+                  </div>
+               </div>
+               <!-- <div class="form-row" id="member-tag"> -->
+               <!-- <button class="btn btn-secondary mb-3 ml-2" id="add-tag-button" type="button" aria-expanded="false" -->
+               <!-- onclick="addTagModal()"> -->
+               <!-- data-target="#add-tag-modal" data-toggle="modal" aria-expanded="false" > -->
+               <!-- Lägg till tagg -->
+               <!-- </button> -->
+               <!-- </div> -->
+
+               <div class="modal-footer d-flex flex-nowrap">
+                  <button type="button" class="btn btn-dark mr-2 w-50" data-dismiss="modal">Stäng</button>
+                  <button id="save-edit-button" class="btn btn-primary w-50" type="button">Spara</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<!-- Modal for adding tag to member -->
+<div class="modal fade" id="add-tag-modal" tabindex="-1" role="dialog" aria-labelledby="add-tag-label"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3 class="modal-title" id="add-tag-user-label">Lägg till tagg</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-add-tag">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+
+            <div class="row">
+               <form id="add-user-tag-form" class="m-1 ml-2">
+                  <div class="form-group ">
+                     <label for="tag-number" class="col-form-label">Tagg-ID</label>
+                     <input type="tag-number" class="form-control" id="tag-number-input">
+                  </div>
+               </form>
+               <div class="md-form md-outline input-with-post-icon datepicker m-1 ml-2 float-right" id="tag-date-form">
+                  <label for="tag-expire-date-input" class="col-form-label">Välj utgångsdatum:</label>
+                  <input placeholder="Select date" type="date" id="tag-expire-date-input" class="form-control">
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" id="close-user-tag-modal-button"
+                  data-dismiss="modal">Stäng</button>
+               <button id="save-user-tag-button"  class="btn btn-primary" type="button">Lägg till
+                  tagg</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</html>

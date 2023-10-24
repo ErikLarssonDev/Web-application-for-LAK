@@ -1,0 +1,45 @@
+
+
+
+@media (min-width: 768px) {
+    .bd-clipboard {
+        display: block;
+    }    
+}
+
+.bd-clipboard {
+    position: relative;
+    display: none;
+    float: right;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+
+.btn-clipboard {
+        position: absolute;
+        top: 16rem;
+        right: 3.5rem;
+        z-index: 10;
+        display: block;
+        font-size: 75%;
+        color: #818a91;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .btn-clipboard {
+        top: 13rem;  
+    }
+}
+
+
+
+#email-textarea {
+    box-sizing: border-box;
+    padding-right: 60px;
+}

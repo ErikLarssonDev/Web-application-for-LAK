@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/content/member_pages/my_profile.css">
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-2">
+            <div class="container d-flex flex-wrap justify-content-center">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="my-pages">Mina sidor</h2>
+                        <div class="d-flex flex-wrap justify-content-center p-2 shadow rounded" style="background-color: #F0F0F0;" id="sidebar-content">
+                            <!-- Should these be links or buttons? -->
+                            <button type="button" class="btn btn-secondary btn-lg rounded-pill m-2" id="2nd-profile-button">Profil</button>
+                            <button type="button" class="btn btn-secondary btn-lg rounded-pill m-2" id="booking-button">Bokningar</button>
+                            <button type="button" class="btn btn-secondary btn-lg rounded-pill m-2" id="membership-button">Medlemskap</button>
+                            <button type="button" class="btn btn-secondary btn-lg rounded-pill m-2" id="payment-button">Betalningar</button>
+                            <button type="button" class="btn btn-secondary btn-lg rounded-pill m-2" id="settings-button">Inställningar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md">
+            <div class="container-sm">
+                <div class="row my-3 justify-content-center">
+                    <h1 id="profile-page-content-header"></h1>
+                </div>
+                <div class="row" id="profile-page-content">
+                    <!--Content is inserted here-->
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2"></div>
+    </div>
+</div>
+
+<script src="/content/member_pages/my_profile.js"></script>
+<script src="/content/member_pages/member_profile.js"></script>
+<script src="/content/member_pages/member_booking.js"></script>
+<script src="/content/member_pages/member_membership.js"></script>
+<script src="/content/member_pages/member_payment.js"></script>
+<script src="/content/member_pages/member_settings.js"></script>
+
+</html>

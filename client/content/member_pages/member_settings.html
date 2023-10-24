@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/content/member_pages/my_profile.css">
+</head>
+
+<div class="container">
+    <div class="row">
+        <h2>Inställningar</h2>
+    </div>
+    <div class="row">
+        <div id="member-info-content" class="container shadow p-4 rounded mx-0">
+            <form id="member-info-form">
+                <div class="row">
+                    <div class="col-sm my-2">
+                        <input type="text" id="member-first-name" class="form-control" placeholder="Förnamn" disabled>
+                    </div>
+                    <div class="col-sm my-2">
+                        <input type="text" id="member-last-name" class="form-control flex-grow-5"
+                            placeholder="Efternamn" disabled>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md my-2">
+                        <input type="text" id="member-address" class="form-control" placeholder="Adress">
+                    </div>
+                    <div class="col-sm my-2">
+                        <input type="number" id="member-zipcode" class="form-control" placeholder="Postnummer" maxlength="5">
+                    </div>
+                    <div class="col-sm my-2">
+                        <input type="text" id="member-city" class="form-control" placeholder="Stad">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col my-2">
+                        <input type="email" id="member-email" class="form-control" placeholder="Mejl">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col my-2">
+                        <input type="tel" id="member-phone" class="form-control" placeholder="Telefonnummer">
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="member-newsletter">
+                    <label class="form-check-label mb-1" for="gridCheck">
+                        Prenumererar på nyhetsbrev
+                    </label>
+                </div>
+            </form>
+            <div class="settings-buttons mt-2">
+                <button id="update-member-button" class="btn btn-primary member-button">Uppdatera</button>
+                <button id="cancel-update-member-button" class="btn btn-secondary member-button">Avbryt</button>
+                <button id="edit-profile-button" class="btn btn-secondary d-none">Redigera</button>
+                <button id="delete-profile-button" class="btn btn-danger" onclick="showDeleteProfileModal()">Radera
+                    konto</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONFIRM DELETION OF MEMBER -->
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+        id="confirm-delete-profile-modal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="registration-modal-label">Är du säker på att du vill ta bort
+                        detta konto?</h6>
+                </div>
+                <div class="modal-body d-flex flex-wrap">
+                    <button type="button" class="modal-btn btn btn-danger mx-1" id="confirm-delete-profile-button"
+                        data-dismiss="modal">Ta
+                        bort</button>
+                    <button type="button" class="modal-btn btn btn-dark" data-dismiss="modal"
+                        id="cancel-deletion-profile-member">Avbryt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

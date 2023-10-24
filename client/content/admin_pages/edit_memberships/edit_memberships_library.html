@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/content/admin_pages/update_news/update_news.css">
+</head>
+
+<body>
+    <h1 class="text-uppercase">Medlemskap</h1>
+    <div id="membership-controller-header" class="pb-3">
+        <button type="button" class="btn btn-dark my-2" id="new-membership-button" onclick="viewMembershipEdit()">Nytt medlemskap</button>
+    </div>
+    <table class="table table-hover table-sm" id="membership-archives">
+        <thead class="border-bottom border-secondary thead-light">
+            <tr>
+                <th id="table-title">Namn</th>
+                <th id="table-published">Pris</th>
+                <th id="table-published">Varaktighet</th>
+                <th id="table-button">Lista medlemmar</th>
+                <th id="table-button">Redigera</th>
+                <th id="table-button">Radera</th>
+            </tr>
+        </thead>
+        <tbody id="bodyrow">
+        </tbody>
+    </table>
+</body>
+<!-- Modal for editing membership -->
+<div class="modal fade" id="edit-memberships-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-label">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h3 class="modal-title" id="edit-membership-modal-label"></h3>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <form id="edit-form">
+                <!-- Title -->
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <labe class="col-form-label">Namn</label>
+                        <input type="text" class="form-control modal-form reg-input" id="name-input-edit-membership">
+                    </div>
+                </div>
+                <!-- Price -->
+                <div class="form-row">
+                   <div class="form-group col-12">
+                      <label for="price" class="col-form-label">Pris</label>
+                      <input type="number" class="form-control reg-input" id="price-input-edit-membership">
+                   </div>
+                </div>
+                <!-- Duration -->
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label class="col-form-label">Varaktighet [månader]</label>
+                        <input type="number" class="form-control reg-input" id="duration-input-edit-membership">
+                    </div>
+                </div>
+                <!-- Description -->
+                <div class="form-row">
+                   <div class="form-group col-12">
+                      <label for="user-email" class="col-form-label">Beskrivning</label>
+                      <input type="textarea" class="form-control" id="description-input-edit-membership">
+                   </div>
+                </div>
+ 
+                <div class="modal-footer d-flex flex-nowrap">
+                   <button type="button" class="btn btn-dark  mr-2 w-50" data-dismiss="modal">Stäng</button>
+                   <button id="save-membership-edit-button" class="btn btn-primary w-50" type="button" data-dismiss="modal">Spara</button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+
+<!-- CONFIRM DELETION OF Membership -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+    id="confirm-delete-membership-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="registration-modal-label">Är du säker på att du vill ta bort
+                    detta medlemskap?</h6>
+            </div>
+            <div class="modal-body d-flex flex-wrap">
+                <button type="button" class="modal-btn btn btn-danger" id="confirm-delete-membership-button"
+                    data-dismiss="modal">Ta bort</button>
+                <button type="button" class="modal-btn btn btn-dark" data-dismiss="modal"
+                    id="cancel-deletion-membership-member">Avbryt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for viewing users on a membership -->
+<div class="modal fade" id="users-by-membership-modal" tabindex="-1" role="dialog" aria-labelledby="users-by-membership-modal-label"
+aria-hidden="true">
+<div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h6 class="modal-title" id="users-by-membership-modal-label">Medlemmar</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row ml-2">
+                <!-- Search bar for members -->
+                <div class="form-group">
+                    <input class="form-control" type="text" id="searchMembershipInput" onkeyup="findSearchResult('searchMembershipInput', 'user-membership-table')"
+                        placeholder="Hitta medlem" title="Type in a name">
+                </div>
+            </div>
+
+            <table class="table" id="user-membership-table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" id="name" onclick="sortMembershipTable(0)">Namn</th>
+                        <th scope="col" id="user-membership-pnr" class="can-disappear" onclick="sortMembershipTable(1)">Personnummer <i
+                                id="user-membership-pnr-icon"
+                                style="color:var(--primary-color); padding:0px; width:15px"></i></th>
+                        <th scope="col" id="mail" class="can-disappear">E-postadress</th>
+                        <th scope="col" id="tel" class="can-disappear">Telefonnummer</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="membership-bodyrow">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+</html>

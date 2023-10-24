@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+
+</head>
+
+  <h1>TAGGAR</h1>
+  <div class="row">
+    <!-- Search bar for tags -->
+    <input class="m-2 ml-3 float-left" type="text" id="search-input-tags" onkeyup="findSearchResult('search-input-tags', 'tags-table')"
+      placeholder="Hitta tagg" title="Type in a tag number">
+    <!-- <button type="button" class="btn btn-dark m-2 float-right">Lägg till tagg</button> -->
+  </div>
+
+  <table class="table table-hover table-sm" id="tags-table">
+    <thead class="border-bottom border-secondary thead-light">
+      <tr>
+        <th scope="col" id="tag-id-col" onclick="sortTableTags(0, 'tags-table')">Tagg-ID</th>
+        <th scope="col" id="valid-until-col" class="can-disappear" onclick="sortTable(1, 'tags-table')">Giltig till</th>
+        <th scope="col" id="user-col" class="can-disappear">Användare</th>
+        <th scope="col"></th> <!-- Maybe add a button for removing / editing a tag here -->
+      </tr>
+    </thead>
+    <tbody id="bodyrow-tags">
+    </tbody>
+  </table>
+
+
+
+
+
+
+</html>

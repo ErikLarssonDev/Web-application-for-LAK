@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/content/admin_pages/update_news/update_news.css">
+</head>
+
+<body>
+    <h1 class="text-uppercase">mina nyheter</h1>
+    <div id="news-controller-header" class="pb-3">
+        <!-- Search bar for members -->
+        <input class="m-1 float-left" type="text" id="search-input-news-archive"
+            onkeyup="findSearchResult('search-input-news-archive', 'news-archives')"
+            placeholder="Hitta inlägg" title="Type in a name"> <button type="button" class="btn btn-dark my-2"
+            id="news-button">Nytt inlägg</button>
+    </div>
+
+    <table class="table table-hover table-sm" id="news-archives">
+        <thead class="border-bottom border-secondary thead-light">
+            <tr>
+                <div class="d-flex">
+                    <th id="table-title" onclick="sortTable(0, 'news-archives')">Rubrik</th>
+                    <div class="mr-auto">
+                        <th id="table-published" class="can-disappear" onclick="sortTable(1, 'news-archives')">
+                            Publicerad</th>
+                        <th id="table-button">Redigera</th>
+                        <th id="table-button">Radera</th>
+                    </div>
+                </div>
+            </tr>
+        </thead>
+        <tbody id="bodyrow">
+        </tbody>
+    </table>
+    <!-- CONFIRM DELETION OF FILE -->
+</body>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+    id="confirm-delete-news-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="registration-modal-label">Är du säker på att du vill ta bort
+                    detta inlägg?</h6>
+            </div>
+            <div class="modal-body d-flex flex-wrap">
+                <button type="button" class="modal-btn btn btn-danger" id="confirm-delete-news-button"
+                    data-dismiss="modal">Ta
+                    bort</button>
+                <button type="button" class="modal-btn btn btn-dark" data-dismiss="modal"
+                    id="cancel-deletion-news-member">Avbryt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

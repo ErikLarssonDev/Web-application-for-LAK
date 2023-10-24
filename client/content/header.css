@@ -1,0 +1,35 @@
+/* ------ HEADER ------- */
+
+#nav {
+     background: var(--primary-color);
+}
+
+#nav a {
+    color: var(--contrast-primary);
+}
+
+#nav a:hover {
+    color: var(--secondary-color);
+}
+
+.breadcrumb-item {
+    padding-left: 0;
+    margin-right: 0;
+    margin: 0.2rem 0 0.5rem 0;
+}
+
+.breadcrumb-item a {
+    color: var(--contrast-links)
+}
+
+#container a {
+    color: var(--contrast-links)
+}
+
+.active-nav-link{ 
+    color: var(--secondary-color) !important;
+}
+
+#admin-button:hover span, #profile-button:hover span{
+    color: var(--secondary-color);
+}

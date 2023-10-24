@@ -1,0 +1,150 @@
+
+.footer {
+    margin-top: 1em;
+    background-color: var(--primary-color);
+}
+
+#footer-text,
+#lka-header-footer {
+    color: var(--contrast-primary);
+}
+
+.footer h4 {
+    color: var(--contrast-primary);
+}
+
+.footer p {
+    color: var(--contrast-primary);
+}
+
+.footer-container {
+    margin: 80px 40px 0;
+    flex-wrap: wrap;
+}
+
+/* whitesmoke */
+.footer-container p {
+    margin: 3px 0;
+    color: var(--contrast-primary);
+}
+
+.footer-container a:not([href]),
+.footer-container a:not([href]):hover {
+    color: var(--secondary-color)
+}
+
+.footer-main {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+/*---- Footer items -----*/
+.footer-openinghours {
+    float: left;
+}
+
+.footer-openinghours td{
+    padding: 4px;
+}
+
+#footer-link-block {
+    display: inline-flex;
+    float: right;
+}
+
+.footer-links {
+    padding-right: 2em;
+    padding-bottom: 1rem;
+    min-width: 160px;
+}
+
+/*---- Contact -----*/
+.footer .contact {
+    display: inline-flex;
+    color: var(--contrast-primary);
+    position: relative;
+    justify-content: space-around;
+    padding-right: 10px;
+}
+
+.footer .contact a{
+    padding: 0 5px 0;
+}
+
+.footer .contact i {
+    padding: 10px;
+}
+
+/* Icons */
+.footer .fa {
+    padding: 20px;
+    font-size: 20px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+   /* color: var(--contrast-primary); I'm commenting this out since it should not be a global setting.*/ 
+}
+
+/* Add a hover effect if you want */
+.footer .fa-facebook-square:hover {
+    opacity: 0.7;
+}
+
+.footer .fa-instagram:hover {
+    opacity: 0.7;
+}
+
+.footer .fa-envelope:hover {
+    opacity: 0.7;
+}
+
+.footer .fa-phone:hover {
+    opacity: 0.7;
+}
+
+/*---- Copywrite -----*/
+.copywrite {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 5px;
+    color: whitesmoke;
+}
+
+#sportify-logo-img {
+    height: 30px;
+    padding-bottom: 4px;
+}
+
+@media screen and (max-width: 750px) {
+    .footer {
+        flex-direction: column;
+    }
+
+    .footer-main {
+        flex-wrap: wrap;
+    }
+
+    .footer .contact {
+        flex-direction: row;
+    }
+    .footer .contact-items {
+        margin-left: 28px;
+        justify-content: left;
+    }
+    .footer .contact p {
+        flex-direction: row;
+    }
+
+    .footer .socialmedia {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .footer .contact-items {
+        justify-content: left;
+        align-content: center;
+    }
+}

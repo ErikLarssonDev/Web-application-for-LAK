@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/content/member_pages/my_profile.css">
+</head>
+
+<div class="container">
+    <div class="row">
+        <h2>Bokningar</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <!-- <div class="d-flex flex-row"> -->
+            <div id="member-container" overflow:auto>
+                <div class="row">
+                    <div id="current-bookings" class="container p-4 rounded mx-0">
+                        <h2>Kommande bokningar</h2>
+                        <div id="member-payments-content" class="content">
+                            <table class="table table-sm shadow p-4 rounded mx-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col" id="title-current">Vad</th>
+                                        <th scope="col" id="start-current" >Starttid</th>
+                                        <th scope="col" id="end-current" class="can-disappear">Sluttid</th>
+                                        <th scope="col" id="cost-current" class="can-disappear">Kostnad</th>
+                                        <th scope="col" id="unbook-current"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bodyrow-current-booking">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="previous-bookings" class="container p-4 rounded mx-0">
+                    <h2>Tidigare bokningar</h2>
+                    <div id="member-payments-content" class="content">
+                        <table class="table table-sm shadow p-4 rounded mx-0">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" id="title-previous">Vad</th>
+                                    <th scope="col" id="start-previous" class="can-disappear">Starttid</th>
+                                    <th scope="col" id="end-current" class="can-disappear">Sluttid</th>
+                                    <th scope="col" id="cost-previous" class="can-disappear">Kostnad</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyrow-previous-booking">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal to confirm unbooking -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+    id="cancel-booking-modal-member">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="registration-modal-label">Är du säker på att du vill avboka?</h6>
+            </div>
+            <div class="modal-body d-flex flex-wrap">
+                <div class="row">
+                    <button type="button" class="modal-btn btn btn-secondary px-md-5"
+                        data-dismiss="modal">Avbryt</button>
+                    <button type="button" class="modal-btn btn btn-danger px-md-5" id="confirm-cancel"
+                        data-dismiss="modal">Avboka</button>
+                </div>
+
+            </div>
+        </div>
+        <div id="member-info-content" class="container shadow p-4 rounded mx-0">
+
+    </div>
+</div>
+
+<!-- Modal to show more info of event -->
+
+</html>

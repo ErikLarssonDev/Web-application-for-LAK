@@ -1,0 +1,49 @@
+
+  #openingTime-content{
+    height: 435px;
+  }
+  
+  #contactInfo-content{
+    height: 435px;
+  }
+  .map-container {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+#map-inner-container{
+  height: 300px;
+}
+
+.map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#contactInfo-list .fa:hover {
+  opacity: 0.7;
+}
+
+#contactInfo-list .fa{
+  font-size: 25px;
+  padding: 10px 10px 10px 0;
+}
+
+#contactInfo-list .fa-facebook-square{
+  color: #4267B2;
+}
+
+#contactInfo-list [href]{
+  color: var(--secondary-color); 
+}
+
+@media screen and (max-width:575px){
+  #map-inner-container {
+    height: 250px;
+  }
+}

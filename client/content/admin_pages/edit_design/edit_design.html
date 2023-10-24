@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/content/admin_pages/edit_design/edit_design.css">
+</head>
+
+<body>
+    <div class="d-flex flex-wor flex-wrap">
+        <div class="mr-3 mb-4">
+            <h1>Redigera logga</h1>
+            <div class="card shadow">
+                <div class="card-body">
+                    <div>
+                        <input type="file" id="association-file-upload" name="filename">
+                        <img id="tempImg" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <button type="button" onclick="addImage()" class="btn btn-dark mb-2">Spara</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="mr-3">
+
+            <h1>Redigera färger</h1>
+            <div class="card d-flex flex-wrap">
+                <div class="card-body shadow">
+                    <p class="mb-2">För bra resultat: välj en mörk och en ljus färg</p>
+                    <div class="mb-2">
+                        <input type="color" id="primary-color-input" name="primary" value="">
+                        <label for="primary">Primärfärg (navigering, footer etc.)</label>
+                    </div>
+                    <div>
+                        <input type="color" id="secondary-color-input" name="secondary" value="">
+                        <label for="secondary">Sekundärfärg</label>
+                    </div>
+                    <div>
+                        <button id="update-colors-button" type="button" class="btn btn-dark mb-2">Spara</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
